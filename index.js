@@ -19,8 +19,13 @@ mongoose.connection.on( 'error', function ( error ) {
 } );
 
 app.use( connect.bodyParser() );
+app.use(express.static('view'));
 app.use( '/', require( './controller/ConfessionsController' ) );
 app.use( '/', require( './controller/AdminController' ) );
+
+app.get( '/', function( request, response) {
+	response.sendfile( "view" );
+} );
 
 app.listen( config.port, config.host );
 
