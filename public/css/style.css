@@ -129,7 +129,7 @@ body{
 	transform: translate3d(0, 0, 0);
 }
 
-@media screen and (min-width: 992px){
+@media screen and (min-width: 768px){
 	.grid>li>.description{
 		height:140px;
 		overflow-y:auto;
