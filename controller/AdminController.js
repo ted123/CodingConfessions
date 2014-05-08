@@ -27,7 +27,7 @@ Router
     .put('/admin/:messageId', function(request, response) {
         Admin.update( {
             _id: request.params.messageId },
-            { password: request.body.password },
+            { password: request.body.password, username: request.body.username },
             { multi: true },
             function( error, doc ) {
                 if (error) {
