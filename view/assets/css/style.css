@@ -107,13 +107,12 @@ body{
 	font-family: inherit;
 }
 
-.grid>li.module {
+.grid>li {
 	cursor: pointer;
 	display: inline-block;
 	height: auto;
-	width: 100%;
 }
-.module{
+.grid>.col-md-3{
 	background: #ffffff;
 	border: 0.25em solid #eeeeee;
 	padding: 1.25em 1.25em 1.5em;
@@ -127,15 +126,14 @@ body{
 	transform: translate3d(0, 0, 0);
 }
 
-    @media only screen and (min-width: 50em){.grid.fixed-height{max-height:42rem}}
-    @media only screen and (min-width: 60em){.grid.fixed-height{max-height:28rem}}.grid.grid-loading>.module{-webkit-animation-duration:1.5s;-webkit-animation-timing-function:linear;-webkit-animation-iteration-count:infinite;-webkit-animation-play-state:running;-webkit-animation-name:glow}
-    @-webkit-keyframes glow{0%{opacity:.5}100%{opacity:1}}
-    @media only screen and (min-width: 40em){.grid>li.module{height:12rem;width:50%}}
-    @media only screen and (min-width: 50em){.grid>li.module{height:14rem;width:33%}}
-    @media only screen and (min-width: 60em){.grid>li.module{height:14rem;width:25%}}
-    @media only screen and (min-width: 90em){.grid>li.module{height:14rem;width:20%}}.grid>li.module.module-loading{background-color:# e4e4e4}
+@media screen and (min-width: 992px){
+	.grid>li>.description{
+		height:140px;
+		overflow-y:auto;
+	}	
+}
 
-.grid>li.module .subtitle {
+.grid>li>.subtitle {
 	text-align: right;
 	word-wrap: break-word;
 	font-weight: 600;
