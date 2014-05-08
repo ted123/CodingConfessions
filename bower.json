@@ -1,0 +1,28 @@
+{
+  "name": "CodingConfessions",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/LineOfAwesome/CodingConfessions",
+  "authors": [
+    "Global Zeal"
+  ],
+  "description": "Coding Confessions App",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "public/js/libs"
+  ],
+  "dependencies": {
+    "jQuery": "~2.1.1",
+    "bootstrap": "~3.1.1",
+    "backbone": "~1.1.2",
+    "backbone.marionette": "~1.8.4",
+    "json2": "*",
+    "requirejs": "~2.1.11"
+  }
+}
