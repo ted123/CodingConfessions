@@ -69,20 +69,20 @@ body{
 	padding:5px;
 	outline : none;
 }
-.container textarea { 
-	resize:     none; 
+.container textarea {
+	resize:     none;
 	width:      350px;
-	min-height: 150px; 
+	min-height: 150px;
 	color: #000;
 	border-radius: 5px;
 	padding: 10px;
 	outline : none;
 }
-.container textarea.vert { 
-	resize: vertical; 
+.container textarea.vert {
+	resize: vertical;
 }
-.container textarea.noResize { 
-	resize: none; 
+.container textarea.noResize {
+	resize: none;
 }
 
 .content{
@@ -133,7 +133,7 @@ body{
 	.grid>li>.description{
 		height:140px;
 		overflow-y:auto;
-	}	
+	}
 }
 
 .grid>li>.subtitle {
