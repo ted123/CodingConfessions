@@ -24,4 +24,27 @@ define( [ 'mainApp', 'mainAppCollections' ], function( ConfessionApp ) {
 		itemView : ConfessionApp.confessionView
 	} );
 
+	ConfessionApp.addView = Marionette.ItemView.extend( {
+		template : '#confessionForm',
+		events : {
+			'click #add' : 'addMsg'
+		},
+		addMsg : function(e) {
+			e.preventDefault();
+			var msg = new ConfessionApp.confession( {
+				'message' : $('#message').val(),
+				'alias'	: $('#alias').val()
+			} );
+
+			var s = msg.save();
+			if( ! s ){
+				ConfessionApp.trigger('addMsg:error');
+			}
+		},
+		initialize: function() {
+			ConfessionApp.on('addMsg:error', function(){
+				alert('Error. Forms must not be empty.');
+			});
+		}
+	} );
 } );

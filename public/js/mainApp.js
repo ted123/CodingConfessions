@@ -4,7 +4,8 @@ define(['marionette', 'jquery', 'bootstrap' ], function(Marionette){
 	ConfessionApp.addRegions( {
 		mainRegion     : ".message",
 		trendingRegion : "#trending",
-		footRegion     : "#modalFooter"
+		footRegion     : "#modalFooter",
+		confessionFormRegion : '#confessFormRegion'
 	} );
 
 	return ConfessionApp;

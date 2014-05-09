@@ -44,6 +44,9 @@ require( [ 'mainApp', 'mainAppRouter', 'mainAppCollections', 'mainAppViews' ], f
 			}
 		} );
 
+		var d = new ConfessionApp.addView();
+		ConfessionApp.confessionFormRegion.show( d );
+
 	} );
 
    	ConfessionApp.start();
