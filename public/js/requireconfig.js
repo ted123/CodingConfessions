@@ -12,19 +12,39 @@ require.config( {
 		'backbone.babysitter' : 'libs/backbone.babysitter/lib/backbone.babysitter',
 		'backbone.wreqr'      : 'libs/backbone.wreqr/lib/backbone.wreqr',
 		'marionette'          : 'libs/backbone.marionette/lib/core/amd/backbone.marionette',
-		'app'				: 	'app'
+		'adminApp'            : 'adminApp',
+		'mainApp'             : 'mainApp',
+		'mainAppRouter'       : 'mainAppRouter',
+		'mainAppCollections'  : 'mainAppCollections',
+		'mainAppViews'        : 'mainAppViews'
 	},
 
 	'shim' : {
 		'bootstrap' : {
-			'deps' : [ 'jquery' ],
+			'deps'    : [ 'jquery' ],
 			'exports' : 'bootstrap'
 		}
 
 	}
 
-});
+} );
 
-require(["app"], function(ConfessionManager){
-   ConfessionManager.start();
-});
+require( [ 'mainApp', 'mainAppRouter', 'mainAppCollections', 'mainAppViews' ], function( ConfessionApp ) {
+
+	ConfessionApp.on( "initialize:after", function() {
+
+		Backbone.history.start();
+		var c = new ConfessionApp.confessions();
+		c.fetch( {
+			success : function(data) {
+				var confessions = new ConfessionApp.ConfessionsView( {
+					collection : data
+				} );
+				ConfessionApp.trendingRegion.show( confessions );
+			}
+		} );
+
+	} );
+
+   	ConfessionApp.start();
+} );

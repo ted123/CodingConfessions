@@ -19,12 +19,15 @@ mongoose.connection.on( 'error', function ( error ) {
 } );
 
 app.use( connect.bodyParser() );
-app.use(express.static('public'));
+app.use( express.static('public/') );
 app.use( '/', require( './controller/ConfessionsController' ) );
 app.use( '/', require( './controller/AdminController' ) );
 
 app.get( '/', function( request, response) {
-	response.send( "index.html" );
+	response.sendfile( "index.html" );
+} );
+app.get( '/adminPage', function( request, response) {
+	response.sendfile( __dirname + "/public/adminpage.html" );
 } );
 
 app.listen( config.port, config.host );
