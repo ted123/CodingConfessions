@@ -16,6 +16,10 @@ body{
 	color: #fff;
 }
 
+.messageBody{
+	color: #000 ;
+}
+
 .jumbotron{
 	text-align: center;
 	background-color: #525252;

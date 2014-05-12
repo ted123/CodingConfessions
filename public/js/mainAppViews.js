@@ -7,21 +7,21 @@ define( [ 'mainApp', 'mainAppCollections' ], function( ConfessionApp ) {
 		className: 'col-md-3 col-sm-4',
 		template : "#trendingTemp",
 		events   : {
-			"click #action" : "action",
-			"click #reject" : "reject"
+			"click p" : "action"
 		},
-		action : function() {
-			alert( "Confession Approved" );
-		},
-		reject : function() {
-			alert( "Confession Rejected" );
+		action : function(e) {
+
+        	$('.messageBody').html(this.model.get('message'));
+        	//alert(item);
 		}
+
 	} );
 
 	ConfessionApp.ConfessionsView = Marionette.CollectionView.extend( {
 		tagName  : 'ol',
 		className : 'grid fixed-height',
-		itemView : ConfessionApp.confessionView
+		itemView : ConfessionApp.confessionView,
+
 	} );
 
 	ConfessionApp.addView = Marionette.ItemView.extend( {
