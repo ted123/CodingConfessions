@@ -8,7 +8,7 @@ var app      = express();
 var utils    = require( './utils' );
 var config   = require( './config' );
 
-mongoose.connect( utils.mongoUrl( config.db ) );
+mongoose.connect( os.getenv('MONGOHQ_URL') );
 
 mongoose.connection.on( 'open', function () {
 	console.log( 'Connection to mongodb is open' );
@@ -30,6 +30,6 @@ app.get( '/adminPage', function( request, response) {
 	response.sendfile( __dirname + "/public/adminpage.html" );
 } );
 
-app.listen( config.port, config.host );
+app.listen( process.env.PORT || 3000 );
 
 module.exports = app;
