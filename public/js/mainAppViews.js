@@ -39,11 +39,19 @@ define( [ 'mainApp', 'mainAppCollections' ], function( ConfessionApp ) {
 			var s = msg.save();
 			if( ! s ){
 				ConfessionApp.trigger('addMsg:error');
+			}else{
+				ConfessionApp.trigger('addMsg:success');
 			}
 		},
 		initialize: function() {
 			ConfessionApp.on('addMsg:error', function(){
 				alert('Error. Forms must not be empty.');
+			});
+			ConfessionApp.on('addMsg:success', function(){
+				alert('You\'re confession is submitted. ');
+				$('#message').val('');
+				$('#alias').val('');
+
 			});
 		}
 	} );
