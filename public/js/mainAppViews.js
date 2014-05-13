@@ -11,10 +11,20 @@ define( [ 'mainApp', 'mainAppCollections' ], function( ConfessionApp ) {
 		},
 		action : function(e) {
 
-        	$('.messageBody').html(this.model.get('message'));
+        	//$('.messageBody').html(this.model.get('message'));
+        	var confessions = new ConfessionApp.modalView( {
+					model : this.model
+			} );
+
+			ConfessionApp.modalRegion.show( confessions );
+
         	//alert(item);
 		}
 
+	} );
+
+	ConfessionApp.modalView = Marionette.ItemView.extend( {
+		template : "#selectedConfession",
 	} );
 
 	ConfessionApp.ConfessionsView = Marionette.CollectionView.extend( {
