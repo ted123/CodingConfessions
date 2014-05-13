@@ -6,7 +6,8 @@ define(['marionette', 'jquery', 'bootstrap' ], function(Marionette){
 		trendingRegion       : "#trending",
 		footRegion           : "#modalFooter",
 		confessionFormRegion : '#confessFormRegion',
-		wrapper              : '.wrapper'
+		wrapper              : '.wrapper',
+		modalRegion          : '#msgModal'
 	} );
 	return ConfessionApp;
 } );

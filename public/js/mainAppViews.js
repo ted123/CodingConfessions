@@ -1,6 +1,9 @@
-define( [ 'mainApp', 'mainAppCollections' ], function( ConfessionApp ) {
+define( [ 'mainApp', 'mainAppCollections', 'classie' ], function( ConfessionApp ) {
 
 	var Marionette = require( 'marionette' );
+	var router     = require( 'mainAppRouter' );
+	var classie	   = require( 'classie' );
+	
 	ConfessionApp.confessionView = Marionette.ItemView.extend( {
 		tagName  : 'li',
 		className: 'col-md-3 col-sm-4',
@@ -8,10 +11,43 @@ define( [ 'mainApp', 'mainAppCollections' ], function( ConfessionApp ) {
 		events   : {
 			"click p" : "action"
 		},
-		action : function(e) {
-        	$('.messageBody').html(this.model.get('message'));
+		action : function() {
+			Backbone.history.length+=1;
+        	routes = new router;
+        	routes.navigate('#show/'+this.model.get('_id'), true);
+
 		}
 
+	} );
+
+	ConfessionApp.modalView = Marionette.ItemView.extend( {
+		tagName  : 'div',
+		className: "singleContainer",
+		template : "#selectedConfession",
+		events   : {
+			"click button" : "action"
+		},
+		action : function(e){
+			e.preventDefault();
+			ConfessionApp.modalRegion.close();
+			classie.remove( $( '#msgOverlay' )[ 0 ], 'overlay-open' );
+			classie.add( $( '#msgOverlay' )[ 0 ], 'overlay-closed' );
+			classie.remove( $( '.wrapper' )[ 0 ], 'sendtoBack' );
+			classie.add( $( '.wrapper' )[ 0 ], 'sendtoForward' );
+			routes = new router;
+			
+			if( Backbone.history.length == 0 ){
+				console.log('router backing');
+				routes.navigate( '', true);
+
+			}else{
+				console.log('history backing');
+				window.history.back();
+			
+			}
+
+			//routes.navigate('',true);
+		}
 	} );
 
 	ConfessionApp.ConfessionsView = Marionette.CollectionView.extend( {
