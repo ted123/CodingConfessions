@@ -8,7 +8,7 @@ var app      = express();
 var utils    = require( './utils' );
 var config   = require( './config' );
 
-mongoose.connect( os.getenv('MONGOHQ_URL') );
+mongoose.connect( process.env.('MONGOHQ_URL') );
 
 mongoose.connection.on( 'open', function () {
 	console.log( 'Connection to mongodb is open' );
