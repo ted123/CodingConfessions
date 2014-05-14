@@ -38,7 +38,11 @@ require( [ 'mainApp', 'mainAppRouter', 'mainAppCollections', 'mainAppViews', 'cl
 	
 	var router = require( 'mainAppRouter' );
 	ConfessionApp.on( "initialize:after", function() {
+
 		new router;
+
+		new ConfessionApp.Router;
+
 		Backbone.history.start();
 		Backbone.history.length=0;
 		var c = new ConfessionApp.confessions();

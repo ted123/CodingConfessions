@@ -4,6 +4,7 @@ define( [ 'mainApp', 'mainAppCollections', 'classie' ], function( ConfessionApp 
 	var router     = require( 'mainAppRouter' );
 	var classie	   = require( 'classie' );
 	
+
 	ConfessionApp.confessionView = Marionette.ItemView.extend( {
 		tagName  : 'li',
 		className: 'col-md-3 col-sm-4',
@@ -12,7 +13,9 @@ define( [ 'mainApp', 'mainAppCollections', 'classie' ], function( ConfessionApp 
 			"click p" : "action"
 		},
 		action : function() {
+
 			Backbone.history.length+=1;
+
         	routes = new router;
         	routes.navigate('#show/'+this.model.get('_id'), true);
 
