@@ -1,4 +1,2 @@
-READ ME
-
-hello world! 
-
+CodingConfessions
+=================
