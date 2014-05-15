@@ -6,6 +6,86 @@ html{
 	outline: none;
 	-webkit-font-smoothing : antialiased;
 	-moz-osx-font-smoothing : grayscale;
+<<<<<<< HEAD
+}
+
+
+.overlay-closed{
+	max-width: 0%;
+	max-height: 0%;
+	top: 0;
+	left: 0;	
+}
+
+.overlay-open{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #fff;
+	z-index: 100;
+	opacity: 0.95;
+	animation:pop-in 0.5s ease-in-out;
+	-webkit-animation:pop-in 0.5s ease-in-out; /* Safari and Chrome */
+}
+
+.sendtoBack{
+	max-width:95%;
+	max-height:50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:auto;
+	animation:sendBack 0.2s ease-in forwards;
+	-webkit-animation:sendBack 0.2s ease-in forwards; /* Safari and Chrome */
+}
+
+.sendtoForward{
+
+	animation:pop-in 0.2s ease-in-out;
+	-webkit-animation:pop-in 0.2s ease-in-out;
+
+}
+
+@-webkit-keyframes pop-in {
+0% { opacity: 0; -webkit-transform: scale(1); }
+100% { opacity: 0.95; -webkit-transform: scale(1); }
+}
+@-moz-keyframes pop-in {
+0% { opacity: 0; -moz-transform: scale(1); }
+100% { opacity: 1; -moz-transform: scale(1); }
+}
+@keyframes pop-in {
+0% { opacity: 0; transform: scale(1); }
+100% { opacity: 1; transform: scale(1); }
+}
+
+@-webkit-keyframes sendBack {
+0% { opacity: 1; -webkit-transform: scale(1); }
+100% { opacity: 1; -webkit-transform: scale(0.97); }
+}
+@-moz-keyframes sendBack {
+0% { opacity: 1; -moz-transform: scale(1); }
+100% { opacity: 0; -moz-transform: scale(0.97); }
+}
+@keyframes sendBack {
+0% { opacity: 1; transform: scale(1); }
+100% { opacity: 0; transform: scale(0.97); }
+}
+
+@-webkit-keyframes sendF {
+100% { opacity: 0; -webkit-transform: scale(1); }
+0% { opacity: 0.95; -webkit-transform: scale(1); }
+}
+@-moz-keyframes sendF {
+100% { opacity: 0; -moz-transform: scale(1); }
+0% { opacity: 1; -moz-transform: scale(1); }
+}
+@keyframes sendF {
+100% { opacity: 0; transform: scale(1); }
+0% { opacity: 1; transform: scale(1); }
+=======
+>>>>>>> Added overlay effect for each post.
 }
 
 
@@ -84,23 +164,6 @@ html{
 100% { opacity: 0; transform: scale(1); }
 0% { opacity: 1; transform: scale(1); }
 }
-
-
-.overlay-open {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background: rgba(153,204,51,0.9);
-	z-index: 100;
-}
-
-
-
-
-
-
 
 button, button:hover, button:focus{
 	outline: none !important;

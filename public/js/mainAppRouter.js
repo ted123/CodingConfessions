@@ -1,4 +1,3 @@
-
 define( [ 'mainApp', 'classie' ], function( ConfessionApp ){
 	var $ = require( 'jquery' );
 	var Marionette = require( 'marionette' );
@@ -42,7 +41,6 @@ define( [ 'mainApp', 'classie' ], function( ConfessionApp ){
 
 			}
  		
-
 			ConfessionApp.singlePost = Backbone.Model.extend( { url: '/confessions/'+id } );
 			var a = new ConfessionApp.singlePost();
 			a.fetch( {
