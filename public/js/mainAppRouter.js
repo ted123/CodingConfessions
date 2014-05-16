@@ -1,22 +1,25 @@
-define([ 'mainApp' ], function( ConfessionApp ){
+define([ 'mainApp', 'mainAppViews', 'adminApp' ], function( ConfessionApp ){
 
 	ConfessionApp.Router = Backbone.Router.extend( {
 
 		routes: {
-			''        : 'index',
+			''         : 'index',
+			'login'    : 'login',
 			'search'   : 'search',
 			'trending' : 'trending',
-			'recent'   : 'recent',
-			'*other'   : 'default'
+			'recent'   : 'recent'
 		},
 
 		index : function() {
 			$('body').animate( { scrollTop: 0 } );
 			console.log( 'you are in index' );
 		},
-
+		login : function() {
+			var d = new ConfessionApp.loginView();
+			ConfessionApp.wrapper.show( d );
+		},
 		search : function() {
-			//alert('search page init');
+			alert( 'search' );
 		},
 
 		trending : function() {

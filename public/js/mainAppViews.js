@@ -1,7 +1,7 @@
-define( [ 'mainApp', 'mainAppCollections' ], function( ConfessionApp ) {
+define( [ 'mainApp', 'adminApp', 'mainAppCollections' ], function( ConfessionApp, adminApp ) {
 
 	var Marionette = require( 'marionette' );
-
+	var ConfessionManager = require( 'adminApp' );
 	ConfessionApp.confessionView = Marionette.ItemView.extend( {
 		tagName  : 'li',
 		className: 'col-md-3 col-sm-4',
@@ -55,4 +55,34 @@ define( [ 'mainApp', 'mainAppCollections' ], function( ConfessionApp ) {
 			});
 		}
 	} );
+
+	ConfessionApp.loginView = Marionette.ItemView.extend( {
+		template : '#login',
+		events   : {
+			'click #loginSubmit' : 'submitCredentials'
+		},
+		ui : {
+			username : '#username',
+			password : '#password'
+		},
+		submitCredentials : function( e ) {
+			var username = this.ui.username.val();
+			var password = this.ui.password.val();
+			var sample = new ConfessionManager.AdminModel();
+			console.log(username);
+			//sample.fetch({data: { username : 'secretkey'}, type: 'POST'});
+			sample.fetch( {
+				data : {
+					'username' : username,
+					'password' : password
+				},
+				type : 'POST',
+				success :function( result ) {
+					console.log( result );
+				}
+			} );
+		}
+	} );
+
+	ConfessionManager
 } );

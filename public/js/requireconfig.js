@@ -15,8 +15,11 @@ require.config( {
 		'adminApp'            : 'adminApp',
 		'mainApp'             : 'mainApp',
 		'mainAppRouter'       : 'mainAppRouter',
+		'adminAppRouter'      : 'adminAppRouter',
 		'mainAppCollections'  : 'mainAppCollections',
-		'mainAppViews'        : 'mainAppViews'
+		'mainAppViews'        : 'mainAppViews',
+		'adminAppCollections' : 'adminAppCollections',
+		'adminAppViews'       : 'adminAppViews'
 	},
 
 	'shim' : {
@@ -29,11 +32,13 @@ require.config( {
 
 } );
 
-require( [ 'mainApp', 'mainAppRouter', 'mainAppCollections', 'mainAppViews' ], function( ConfessionApp ) {
+require( [ 'mainApp', 'mainAppRouter', 'adminAppRouter', 'mainAppCollections', 'mainAppViews',
+	 'adminAppCollections', 'adminAppViews' ], function( ConfessionApp ) {
 
+	Backbone.history.start();
 	ConfessionApp.on( "initialize:after", function() {
 
-		Backbone.history.start();
+
 		var c = new ConfessionApp.confessions();
 		c.fetch( {
 			success : function(data) {
@@ -48,6 +53,10 @@ require( [ 'mainApp', 'mainAppRouter', 'mainAppCollections', 'mainAppViews' ], f
 		ConfessionApp.confessionFormRegion.show( d );
 
 	} );
+	var ConfessionManager = require( 'adminApp' );
+	ConfessionManager.on( "initialize:after", function() {
 
+	} );
+	ConfessionManager.start();
    	ConfessionApp.start();
 } );
