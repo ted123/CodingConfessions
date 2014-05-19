@@ -12,14 +12,10 @@ require.config( {
 		'backbone.babysitter' : 'libs/backbone.babysitter/lib/backbone.babysitter',
 		'backbone.wreqr'      : 'libs/backbone.wreqr/lib/backbone.wreqr',
 		'marionette'          : 'libs/backbone.marionette/lib/core/amd/backbone.marionette',
-		'adminApp'            : 'adminApp',
 		'mainApp'             : 'mainApp',
 		'mainAppRouter'       : 'mainAppRouter',
-		'adminAppRouter'      : 'adminAppRouter',
 		'mainAppCollections'  : 'mainAppCollections',
-		'mainAppViews'        : 'mainAppViews',
-		'adminAppCollections' : 'adminAppCollections',
-		'adminAppViews'       : 'adminAppViews'
+		'mainAppViews'        : 'mainAppViews'
 	},
 
 	'shim' : {
@@ -32,8 +28,7 @@ require.config( {
 
 } );
 
-require( [ 'mainApp', 'mainAppRouter', 'adminAppRouter', 'mainAppCollections', 'mainAppViews',
-	 'adminAppCollections', 'adminAppViews' ], function( ConfessionApp ) {
+require( [ 'mainApp', 'mainAppRouter', 'mainAppCollections', 'mainAppViews' ], function( ConfessionApp ) {
 
 	Backbone.history.start();
 	ConfessionApp.on( "initialize:after", function() {
@@ -53,10 +48,5 @@ require( [ 'mainApp', 'mainAppRouter', 'adminAppRouter', 'mainAppCollections', '
 		ConfessionApp.confessionFormRegion.show( d );
 
 	} );
-	var ConfessionManager = require( 'adminApp' );
-	ConfessionManager.on( "initialize:after", function() {
-
-	} );
-	ConfessionManager.start();
    	ConfessionApp.start();
 } );

@@ -1,7 +1,6 @@
-define( [ 'mainApp', 'adminApp', 'mainAppCollections' ], function( ConfessionApp, adminApp ) {
+define( [ 'mainApp', 'mainAppCollections' ], function( ConfessionApp ) {
 
 	var Marionette = require( 'marionette' );
-	var ConfessionManager = require( 'adminApp' );
 	ConfessionApp.confessionView = Marionette.ItemView.extend( {
 		tagName  : 'li',
 		className: 'col-md-3 col-sm-4',
@@ -66,9 +65,22 @@ define( [ 'mainApp', 'adminApp', 'mainAppCollections' ], function( ConfessionApp
 			password : '#password'
 		},
 		submitCredentials : function( e ) {
+			e.preventDefault();
 			var username = this.ui.username.val();
 			var password = this.ui.password.val();
-			var sample = new ConfessionManager.AdminModel();
+			$.ajax({
+				url  : "/admin/login",
+				data : {
+					'username' : username,
+					'password' : password
+				},
+				type : "POST",
+				success : function(result){
+					window.location = "http://localhost:3000/adminPage"
+				}
+			});
+			//Backbone.history.navigate('/admin/login',true);
+			/*var sample = new ConfessionManager.AdminModel();
 			console.log(username);
 			//sample.fetch({data: { username : 'secretkey'}, type: 'POST'});
 			sample.fetch( {
@@ -76,13 +88,11 @@ define( [ 'mainApp', 'adminApp', 'mainAppCollections' ], function( ConfessionApp
 					'username' : username,
 					'password' : password
 				},
-				type : 'POST',
 				success :function( result ) {
 					console.log( result );
 				}
-			} );
+			} );*/
 		}
 	} );
 
-	ConfessionManager
 } );

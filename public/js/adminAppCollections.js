@@ -8,4 +8,5 @@ define( [ 'adminApp' ], function( ConfessionManager ) {
 		model : ConfessionManager.AdminModel,
 		url   : '/admin'
 	} );
+
 } );

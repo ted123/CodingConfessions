@@ -4,10 +4,15 @@ define( [ 'adminApp', 'adminAppCollections' ], function( ConfessionManager ) {
 	ConfessionManager.AdminView = Marionette.ItemView.extend( {
 		template : "#headerMenu",
 		events : {
+			"click #logout"            : "logout",
 			"click #changeCredentials" : "toggleModal"
 		},
 		toggleModal : function() {
 			$('#myModal').modal('show');
+		},
+		logout : function() {
+			console.log("SULOD");
+			window.history.replaceState( {}, '', '/#login');
 		}
 	} );
 	ConfessionManager.AdminCredentialsView = Marionette.ItemView.extend( {

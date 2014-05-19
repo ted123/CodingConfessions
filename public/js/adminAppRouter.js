@@ -1,10 +1,9 @@
-define([ 'adminApp', 'adminAppViews', 'mainApp', 'AdminController' ], function( ConfessionManager ){
+define([ 'adminApp', 'adminAppViews' ], function( ConfessionManager ){
 
-	var ConfessionApp = require( 'mainApp' );
 	ConfessionManager.Router = Backbone.Router.extend( {
 
 		routes: {
-			'(/)adminsss'    : 'adminsss'
+			'sample'    : 'adminsss'
 		},
 
 		index : function() {
@@ -12,6 +11,7 @@ define([ 'adminApp', 'adminAppViews', 'mainApp', 'AdminController' ], function( 
 			console.log( 'ADMIN ROUTER' );
 		},
 		adminsss : function() {
+			/*alert("SAMPLE");
 			var url = window.location.hash.split( "?" );
 			var id = url[ 1 ];
 			console.log( id );
@@ -43,7 +43,7 @@ define([ 'adminApp', 'adminAppViews', 'mainApp', 'AdminController' ], function( 
 		var header = new ConfessionManager.AdminView();
 		ConfessionManager.headRegion.show( header );
 		var modalFooter = new ConfessionManager.AdminCredentialsView();
-		ConfessionManager.footRegion.show( modalFooter );
+		ConfessionManager.footRegion.show( modalFooter );*/
 		},
 
 		login : function() {

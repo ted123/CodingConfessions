@@ -93,9 +93,10 @@
 			<div class="boxs logins">
 				<fieldset class="boxBody">
 				  <label>Username</label>
-				  <input type="text" tabindex="1" placeholder="Username" id="username">
+				  <input type="text" tabindex="1" placeholder="Username" id="username" name="username">
 				  <label><a href="#" class="rLink" tabindex="5">Forget your password?</a>Password</label>
 				  <input type="password" tabindex="2" placeholder="Password" id="password">
+				  <input type="hidden" name="invi-password" value=$("password").val()>
 				</fieldset>
 				<footer>
 				  <button class="btnLogin" tabindex="4" id="loginSubmit">Login</button>
