@@ -36,6 +36,7 @@ app.get( '/adminPage', checkAuth, function( request, response ) {
 
 	response.sendfile( __dirname + "/public/adminpage.html" );
 } );
+
 app.get( '/logout', function ( req, res ) {
   delete req.session.user_id;
   res.redirect( '/' );
@@ -47,6 +48,9 @@ function checkAuth( req, res, next ) {
     next();
   }
 }
-app.listen( config.port, config.host );
+
+
+app.listen( config.port );
+
 
 module.exports = app;
