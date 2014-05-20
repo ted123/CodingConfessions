@@ -16,6 +16,4 @@ define( [ 'mainApp' ], function( ConfessionApp ) {
 		model : ConfessionApp.confession,
 		url   : '/confessions'
 	} );
-
-
 } );

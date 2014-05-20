@@ -9,9 +9,7 @@ define( [ 'mainApp', 'mainAppCollections' ], function( ConfessionApp ) {
 			"click p" : "action"
 		},
 		action : function(e) {
-
         	$('.messageBody').html(this.model.get('message'));
-        	//alert(item);
 		}
 
 	} );
@@ -32,26 +30,26 @@ define( [ 'mainApp', 'mainAppCollections' ], function( ConfessionApp ) {
 			e.preventDefault();
 			var msg = new ConfessionApp.confession( {
 				'message' : $('#message').val(),
-				'alias'	: $('#alias').val()
+				'alias'   : $('#alias').val()
 			} );
 
 			var s = msg.save();
-			if( ! s ){
-				ConfessionApp.trigger('addMsg:error');
-			}else{
-				ConfessionApp.trigger('addMsg:success');
+			if( ! s ) {
+				ConfessionApp.trigger( 'addMsg:error' );
+			}else {
+				ConfessionApp.trigger( 'addMsg:success' );
 			}
 		},
 		initialize: function() {
-			ConfessionApp.on('addMsg:error', function(){
+			ConfessionApp.on('addMsg:error', function() {
 				alert('Error. Forms must not be empty.');
-			});
-			ConfessionApp.on('addMsg:success', function(){
-				alert('You\'re confession is submitted. ');
-				$('#message').val('');
-				$('#alias').val('');
+			} );
+			ConfessionApp.on('addMsg:success', function() {
+				alert( 'You\'re confession is submitted. ' );
+				$( '#message' ).val('');
+				$( '#alias' ).val('');
 
-			});
+			} );
 		}
 	} );
 
@@ -75,24 +73,10 @@ define( [ 'mainApp', 'mainAppCollections' ], function( ConfessionApp ) {
 					'password' : password
 				},
 				type : "POST",
-				success : function(result){
+				success : function( result ) {
 					window.location = "http://localhost:3000/adminPage"
 				}
-			});
-			//Backbone.history.navigate('/admin/login',true);
-			/*var sample = new ConfessionManager.AdminModel();
-			console.log(username);
-			//sample.fetch({data: { username : 'secretkey'}, type: 'POST'});
-			sample.fetch( {
-				data : {
-					'username' : username,
-					'password' : password
-				},
-				success :function( result ) {
-					console.log( result );
-				}
-			} );*/
+			} );
 		}
 	} );
-
 } );

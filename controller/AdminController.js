@@ -38,34 +38,15 @@ Router
 			} );
 	} )
 	.post('/admin/login', function ( request, response ) {
-		console.log(request.body.username);
-		Admin.findOne( { 'username' :  request.body.username }, function(err, user) {
-			console.log( user );
-			// if there are any errors, return the error before anything else
-			if( err ) {
-				return err;
+		Admin.findOne( { 'username' :  request.body.username }, function( error, user ) {
+			if( error ) {
+				return error;
 			}else if( !user ) {
-				response.redirect('/#adminsss');
+				response.redirect('/#login');
 			}else {
 				request.session.user_id = user._id;
-				console.log(request.session.user_id);
-				//response.redirect('/#sample?' + user._id );
-				//response.send( admin());
 				response.redirect("/adminPage");
 			}
-		});
-
-		/*if(post.username === 'admin' && post.password === '1') {
-
-		  req.session.user_id = 'johns_user_id_here';
-		  res.redirect('/my_secret_page');
-		} else {
-
-		  res.send('Bad user/pass');
-		}*/
-	});
-function admin(){
-	var x = 200;
-	return x
-}
+		} );
+	} );
 module.exports = Router;

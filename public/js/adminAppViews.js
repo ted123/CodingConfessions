@@ -11,7 +11,6 @@ define( [ 'adminApp', 'adminAppCollections' ], function( ConfessionManager ) {
 			$('#myModal').modal('show');
 		},
 		logout : function() {
-			console.log("SULOD");
 			window.history.replaceState( {}, '', '/#login');
 		}
 	} );
@@ -24,7 +23,6 @@ define( [ 'adminApp', 'adminAppCollections' ], function( ConfessionManager ) {
 			var username = $( '#username' ).val();
 			var password = $( '#password' ).val();
 			var id       = $( '#idAdmin' ). val();
-			console.log(id + " " + " " + username + " " + password  );
 			jQuery.ajax({
 			    url: '/admin/' + id,
 			    type: 'PUT',
@@ -33,8 +31,8 @@ define( [ 'adminApp', 'adminAppCollections' ], function( ConfessionManager ) {
 			        'username': username
 			    },
 			    success: function( data, textStatus ) {
-				$( '#myModal' ).modal( 'hide' );
-				alert( "Update Response: " + textStatus );
+					$( '#myModal' ).modal( 'hide' );
+					alert( "Update Response: " + textStatus );
 			    }
 			});
 		}

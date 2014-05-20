@@ -7,7 +7,6 @@ var connect  = require('connect');
 var app      = express();
 var session      = require ('express-session');
 var cookieParser = require( 'cookie-parser' );
-var bodyParser = require('body-parser');
 var utils    = require( './utils' );
 var config   = require( './config' );
 

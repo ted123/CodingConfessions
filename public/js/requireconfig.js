@@ -32,9 +32,8 @@ require( [ 'mainApp', 'mainAppRouter', 'mainAppCollections', 'mainAppViews' ], f
 
 	Backbone.history.start();
 	ConfessionApp.on( "initialize:after", function() {
-
-
 		var c = new ConfessionApp.confessions();
+		var d = new ConfessionApp.addView();
 		c.fetch( {
 			success : function(data) {
 				var confessions = new ConfessionApp.ConfessionsView( {
@@ -43,10 +42,7 @@ require( [ 'mainApp', 'mainAppRouter', 'mainAppCollections', 'mainAppViews' ], f
 				ConfessionApp.trendingRegion.show( confessions );
 			}
 		} );
-
-		var d = new ConfessionApp.addView();
 		ConfessionApp.confessionFormRegion.show( d );
-
 	} );
    	ConfessionApp.start();
 } );

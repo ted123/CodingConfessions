@@ -30,23 +30,23 @@ require.config( {
 
 } );
 
-require( [ 'adminApp', 'mainApp', 'mainAppCollections', 'adminAppRouter', 'adminAppCollections', 'adminAppViews' ], function( ConfessionManager, ConfessionApp ) {
+require( [ 'adminApp', 'mainApp', 'mainAppCollections', 'adminAppRouter',
+	 'adminAppCollections', 'adminAppViews' ], function( ConfessionManager, ConfessionApp ) {
 
 	Backbone.history.start();
 	ConfessionManager.on( "initialize:after", function() {
-		var header = new ConfessionManager.AdminView();
-		ConfessionManager.headRegion.show( header );
+		var header      = new ConfessionManager.AdminView();
 		var modalFooter = new ConfessionManager.AdminCredentialsView();
-		ConfessionManager.footRegion.show( modalFooter );
+		var confess     = new ConfessionApp.confessions();
 
-		var confess =  new ConfessionApp.confessions();
+		ConfessionManager.headRegion.show( header );
+		ConfessionManager.footRegion.show( modalFooter );
 		confess.fetch( {
-			success: function(data) {
-			//console.log('me'+JSON.stringify(data));
-			var confessionsListView = new ConfessionManager.ConfessionsView( {
-				collection : data
-			} );
-			ConfessionManager.mainRegion.show( confessionsListView );
+			success: function( data ) {
+				var confessionsListView = new ConfessionManager.ConfessionsView( {
+					collection : data
+				} );
+				ConfessionManager.mainRegion.show( confessionsListView );
 			}
 		} );
 
