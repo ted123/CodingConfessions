@@ -5,13 +5,17 @@ define( [ 'adminApp', 'adminAppCollections' ], function( ConfessionManager ) {
 		template : "#headerMenu",
 		events : {
 			"click #logout"            : "logout",
-			"click #changeCredentials" : "toggleModal"
+			"click #changeCredentials" : "toggleModal",
+			"click #backHome"          : "home"
 		},
 		toggleModal : function() {
-			$('#myModal').modal('show');
+			$( '#myModal' ).modal( 'show' );
 		},
 		logout : function() {
-			window.history.replaceState( {}, '', '/#login');
+			window.history.replaceState( {}, '', '' );
+		},
+		home : function() {
+			window.location = "http://localhost:3000";
 		}
 	} );
 	ConfessionManager.AdminCredentialsView = Marionette.ItemView.extend( {

@@ -29,8 +29,8 @@ define( [ 'mainApp', 'mainAppCollections' ], function( ConfessionApp ) {
 		addMsg : function(e) {
 			e.preventDefault();
 			var msg = new ConfessionApp.confession( {
-				'message' : $('#message').val(),
-				'alias'   : $('#alias').val()
+				'message' : $( '#message' ).val(),
+				'alias'   : $( '#alias' ).val()
 			} );
 
 			var s = msg.save();

@@ -36,14 +36,13 @@ app.get( '/adminPage', checkAuth, function( request, response ) {
 
 	response.sendfile( __dirname + "/public/adminpage.html" );
 } );
-app.get('/logout', function (req, res) {
+app.get( '/logout', function ( req, res ) {
   delete req.session.user_id;
-  res.redirect('/#login');
+  res.redirect( '/' );
 });
-function checkAuth(req, res, next) {
-	console.log( req.session.user_id );
-  if (!req.session.user_id) {
-    res.send('You are not authorized to view this page');
+function checkAuth( req, res, next ) {
+  if ( !req.session.user_id ) {
+    res.redirect( '/login' );
   } else {
     next();
   }
