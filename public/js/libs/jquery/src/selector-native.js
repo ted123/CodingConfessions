@@ -29,7 +29,8 @@ define([
 
 var docElem = window.document.documentElement,
 	selector_hasDuplicate,
-	matches = docElem.webkitMatchesSelector ||
+	matches = docElem.matches ||
+		docElem.webkitMatchesSelector ||
 		docElem.mozMatchesSelector ||
 		docElem.oMatchesSelector ||
 		docElem.msMatchesSelector,
@@ -165,11 +166,6 @@ jQuery.extend( jQuery.find, {
 	},
 	attr: function( elem, name ) {
 		return elem.getAttribute( name );
-	}
-});
-
-});
- name );
 	}
 });
 

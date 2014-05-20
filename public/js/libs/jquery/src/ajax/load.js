@@ -25,7 +25,7 @@ jQuery.fn.load = function( url, params, callback ) {
 		off = url.indexOf(" ");
 
 	if ( off >= 0 ) {
-		selector = url.slice( off );
+		selector = jQuery.trim( url.slice( off ) );
 		url = url.slice( 0, off );
 	}
 
@@ -70,10 +70,6 @@ jQuery.fn.load = function( url, params, callback ) {
 	}
 
 	return this;
-};
-
-});
- this;
 };
 
 });
