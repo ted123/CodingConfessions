@@ -51,9 +51,8 @@ jQuery.extend({
 		readyList.resolveWith( document, [ jQuery ] );
 
 		// Trigger any bound ready events
-		if ( jQuery.fn.triggerHandler ) {
-			jQuery( document ).triggerHandler( "ready" );
-			jQuery( document ).off( "ready" );
+		if ( jQuery.fn.trigger ) {
+			jQuery( document ).trigger("ready").off("ready");
 		}
 	}
 });
@@ -92,6 +91,10 @@ jQuery.ready.promise = function( obj ) {
 };
 
 // Kick off the DOM ready check even if the user does not
+jQuery.ready.promise();
+
+});
+er does not
 jQuery.ready.promise();
 
 });
