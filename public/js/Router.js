@@ -1,9 +1,11 @@
-define( [ 'mainApp', 'classie' ], function( ConfessionApp ){
+define( function( require ){
 	var $ = require( 'jquery' );
 	var Marionette = require( 'marionette' );
-	var classies	   = require( 'classie' );
+	var classies	= require( 'classie' );
+	//var App        = require( 'App' );
+	require('controllers/ShowController');
 
-	ConfessionApp.Router = Marionette.AppRouter.extend( {
+	return Marionette.AppRouter.extend( {
 
 		routes: {
 			''         : 'index',
@@ -16,7 +18,7 @@ define( [ 'mainApp', 'classie' ], function( ConfessionApp ){
 		},
 
 		index : function() {
-			
+			alert(Confessions.Controller.showConfessions);
 			console.log( 'you are in index' );
 		},
 		login : function() {
@@ -72,8 +74,6 @@ define( [ 'mainApp', 'classie' ], function( ConfessionApp ){
 		}
 
 	} );
-
-	return ConfessionApp.Router;
 
 } );
 

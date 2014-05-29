@@ -21,7 +21,7 @@ mongoose.connection.on( 'error', function ( error ) {
 } );
 
 app.use( connect.bodyParser() );
-app.use( express.static('public/') );
+app.use( express.static('public/'));
 app.use(cookieParser());
 app.use(session({secret: 'keyboard cat'}));
 
@@ -29,12 +29,25 @@ app.use(session({secret: 'keyboard cat'}));
 app.use( '/', require( './controller/ConfessionsController' ) );
 app.use( '/', require( './controller/AdminController' ) );
 
-app.get( '/', function( request, response) {
-	response.sendfile( "index.html" );
+app.get( '/sai', function( request, response) {
+  console.log("maligo na c rj yehey!");
+	response.render("way ligo si rj");
 } );
-app.get( '/adminPage', checkAuth, function( request, response ) {
+app.get( '/adminPage', checkAuth, function( request, res ) {
 
-	response.sendfile( __dirname + "/public/adminpage.html" );
+	res.format({
+  text: function(){
+    res.send('hey');
+  },
+  
+  html: function(){
+    res.send('heys');
+  },
+  
+  json: function(){
+    res.send({ message: 'hey' });
+  }
+});
 } );
 
 app.get( '/logout', function ( req, res ) {
