@@ -1,11 +1,11 @@
 module.exports = {
 	'appName' : 'confessions',
 
-	'host' : '192.168.2.221',
+	'host' : 'localhost',
 	'port' : '3000',
 
 	'db' : {
-		'host' : '192.168.2.221',
+		'host' : 'localhost',
 		'port' : 27017,
 		'db'   : 'globalzeal'
 	}

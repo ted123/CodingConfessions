@@ -1,28 +1,30 @@
 define( function ( require ) {
 	'use strict';
 
-	var _   = require( 'underscore' );
-	var App = require( 'App' );
+	var App                       = require( 'App' );
+	var Marionette                = require( 'marionette' );
+	var ConfessionsCollection     = require( 'apps/home/collections/ConfessionsCollection' );
+	var ConfessionsCollectionView = require( 'apps/home/views/ConfessionsCollectionView' );
+	var ConfessionItemView        = require( 'apps/home/views/ConfessionItemView' );
+	var SubmissionItemView        = require( 'apps/home/views/SubmissionItemView' );
 
-	var ConfessionsCollection 		= require( 'collections/ConfessionsCollection' );
-	var ConfessionsCollectionView  	= require( 'views/ConfessionsCollectionView' );
-	var ConfessionItemView	 		= require( 'views/ConfessionItemView' );
-
-	App.module( 'Confessions.Controller', function ( Controller ) {
+	App.module( 'Home.Controller', function ( Controller ) {
 
 		Controller.Show = {
 
-			'showConfessions' : function () {
-
-			ConfessionsCollection.model.fetch( {
-				success : function(data) {
-					var confessions = new ConfessionsCollectionView( {
-						collection : data
-					} );
-					App.trendingRegion.show( confessions );
-				}
-			} );
-
+			'showHome' : function () {
+				var layout = new App.Home.Views.PageLayout();
+				var a      = new ConfessionsCollection;
+				App.content.show( layout );
+				a.fetch( {
+					success : function(data) {
+						var confessions = new App.Home.Views.ConfessionsCollectionView( {
+							collection : data
+						} );
+						layout.trendingRegion.show( confessions );
+						layout.submissionRegion.show( new SubmissionItemView );
+					}
+				} );
 			}
 
 		};

@@ -13,12 +13,13 @@ require.config( {
 		'backbone.babysitter' : 'libs/backbone.babysitter/lib/backbone.babysitter',
 		'backbone.wreqr'      : 'libs/backbone.wreqr/lib/backbone.wreqr',
 		'marionette'          : 'libs/backbone.marionette/lib/core/amd/backbone.marionette',
-		'classie'			  : 'libs/classie/classie',
+		'classie'             : 'libs/classie/classie',
 
 		// Application Files
-		'App'             : 'App',
-		
-			
+		'App'    : 'App',
+		'Router' : 'Router'
+
+
 	},
 
 	'shim' : {

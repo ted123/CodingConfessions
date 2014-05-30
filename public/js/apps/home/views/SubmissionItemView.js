@@ -5,12 +5,10 @@ define( function ( require ) {
 	var Marionette = require( 'marionette' );
 
 
-	var template = require( 'text!apps/home/templates/ConfessionDisplay.html' );
+	var template = require( 'text!apps/home/templates/SubmissionTemplate.html' );
 
 	return Marionette.ItemView.extend( {
 
-		tagName  : 'li',
-		className: 'col-md-3 col-sm-4',
 		template : _.template( template ),
 		events   : {
 			"click p" : "action"

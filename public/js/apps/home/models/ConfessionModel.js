@@ -5,13 +5,8 @@ define( function( require ) {
 	var Backbone = require( 'backbone' );
 
 	return Backbone.Model.extend({
-		
-		url   : '/confessions',
 
-		'initialize' : function ( options ) {
-			_.bindAll( this );
-			_.extend( this, options );
-		},
+		url   : '/confessions',
 
 		'validate' : function( attr ){
 			if( ! attr.message ){

@@ -15,7 +15,8 @@ define( function ( require ) {
 		footRegion           : "#modalFooter",
 		confessionFormRegion : '#confessFormRegion',
 		wrapper              : '.wrapper',
-		modalRegion          : '#msgModal'
+		modalRegion          : '#msgModal',
+		content				 : '#content'
 	} );
 
 	// Allow sub apps to update history fragment when using events
@@ -32,6 +33,7 @@ define( function ( require ) {
 	App.on( 'initialize:after', function () {
 		Backbone.history.start();
 		Backbone.history.length=0;
+
 		console.log( 'App has been initialized :)' );
 	} );
 
