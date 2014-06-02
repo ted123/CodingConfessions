@@ -1,14 +1,14 @@
 /* global require: false, console: false */
 'use strict';
 
-var express  = require( 'express' );
-var mongoose = require( 'mongoose' );
-var connect  = require('connect');
-var app      = express();
-var session      = require ('express-session');
+var express      = require( 'express' );
+var mongoose     = require( 'mongoose' );
+var connect      = require('connect');
+var app          = express();
+var session      = require('express-session');
 var cookieParser = require( 'cookie-parser' );
-var utils    = require( './utils' );
-var config   = require( './config' );
+var utils        = require( './utils' );
+var config       = require( './config' );
 
 mongoose.connect( utils.mongoUrl( config.db ) );
 
@@ -29,21 +29,17 @@ app.use(session({secret: 'keyboard cat'}));
 app.use( '/', require( './controller/ConfessionsController' ) );
 app.use( '/', require( './controller/AdminController' ) );
 
-app.get( '/sai', function( request, response) {
-  console.log("maligo na c rj yehey!");
-	response.render("way ligo si rj");
-} );
 app.get( '/adminPage', checkAuth, function( request, res ) {
 
 	res.format({
   text: function(){
     res.send('hey');
   },
-  
+
   html: function(){
     res.send('heys');
   },
-  
+
   json: function(){
     res.send({ message: 'hey' });
   }

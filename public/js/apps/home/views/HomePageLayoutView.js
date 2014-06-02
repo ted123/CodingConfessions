@@ -11,7 +11,8 @@ define( function ( require ) {
 		'template' : _.template( template ),
 		'regions'  : {
 			'trendingRegion'   : '#trendingConfessions',
-			'submissionRegion' : '#submissionArea'
+			'submissionRegion' : '#submissionArea',
+			'modalRegion'	   : '#msgModal'
 		}
 
 	} );

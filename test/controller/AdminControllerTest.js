@@ -1,6 +1,6 @@
-var request = require( 'supertest' );
-var should = require( 'should' );
-var server = require( '../..' );
+var request   = require( 'supertest' );
+var should   = require( 'should' );
+//var testutils	= require( '../testutils' );
 
 describe ( 'AdminController', function() {
 
@@ -13,7 +13,7 @@ describe ( 'AdminController', function() {
 
 		it( 'should return a response', function ( done ) {
 
-			request( server )
+			request( app )
 				.post( '/admin' )
 				.send( testAccount )
 				.expect( 200 )
@@ -33,7 +33,7 @@ describe ( 'AdminController', function() {
 	describe( 'GET', function( done ){
 
 		it( 'should return a response', function ( done ) {
-			request( server )
+			request( app )
 				.get( '/admin' )
 				.expect( 'Content-Type', /json/ )
 				.expect( 200 )
@@ -52,7 +52,7 @@ describe ( 'AdminController', function() {
 	describe( 'PUT', function( done ){
 
 		it( 'should return a response', function ( done ) {
-			request( server )
+			request( app )
 				.put( '/admin/' + testAccount.id )
 				.send( { 'password' : '1234' } )
 				.expect( 200 )

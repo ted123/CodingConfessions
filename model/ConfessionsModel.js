@@ -3,13 +3,18 @@ var Schema = mongoose.Schema;
 
 var Confession = new Schema( {
 	message : {
-		'type' : String,
+		'type'     : String,
 		'required' : true
 	},
 
 	alias : {
-		'type' : String,
+		'type'    : String,
 		'default' : 'Anonymous'
+	},
+
+	type : {
+		'type'    : String,
+		'default' : 'pending'
 	}
 } );
 

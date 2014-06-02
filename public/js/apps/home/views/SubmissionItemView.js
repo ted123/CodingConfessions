@@ -3,6 +3,7 @@ define( function ( require ) {
 
 	var Backbone   = require( 'backbone' );
 	var Marionette = require( 'marionette' );
+	var confession = require( 'apps/home/models/ConfessionModel' );
 
 
 	var template = require( 'text!apps/home/templates/SubmissionTemplate.html' );
@@ -11,12 +12,31 @@ define( function ( require ) {
 
 		template : _.template( template ),
 		events   : {
-			"click p" : "action"
+			'click #add' : 'submit'
 		},
-		action : function() {
-			Backbone.history.length+=1;
-        	Backbone.history.navigate('#show/'+this.model.get('_id'), true);
+		submit : function( e ) {
+			e.preventDefault();
 
+			var msg = new confession( {
+				'message' : $('#message').val(),
+				'alias'   : $('#alias').val()
+			} );
+
+			if( msg.isValid() ){
+				msg.save({}, {
+					wait : true,
+    				forceUpdate: true,
+					success: function () {
+						alert('All. iz well!');
+					},
+					error : function () {
+						alert( 'An error has occured!' );
+					}
+				} );
+
+			}else{
+				alert( 'Pls fill up all fields!' );
+			}
 		}
 
 	} );

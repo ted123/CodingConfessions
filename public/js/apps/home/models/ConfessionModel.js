@@ -5,8 +5,15 @@ define( function( require ) {
 	var Backbone = require( 'backbone' );
 
 	return Backbone.Model.extend({
+		initialize : function () {
+			Backbone.Model.prototype.initialize.apply(this, arguments);
+			var error = this.validate(this.attributes);
+			if (error) {
+				this.trigger('error', this, error);
+			}
+		},
 
-		url   : '/confessions',
+		url : '/confessions',
 
 		'validate' : function( attr ){
 			if( ! attr.message ){

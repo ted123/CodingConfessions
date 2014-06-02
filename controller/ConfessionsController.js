@@ -1,6 +1,6 @@
-var express = require( 'express' );
+var express     = require( 'express' );
 var Confessions = require( '../model/ConfessionsModel' );
-var Router = express.Router();
+var Router      = express.Router();
 
 Router
 	.get( '/confessions', function ( request, response ) {
@@ -45,7 +45,7 @@ Router
 				if ( error ) {
 					response.send( 500, error );
 				}
-				response.send( 200 );
+				response.send( 200, { 'status' : 'OK' } );
 		} );
 	} )
 	.delete( '/confessions/:messageId', function( request, response ) {

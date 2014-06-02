@@ -2,37 +2,14 @@
 
 var request  = require( 'supertest' );
 var should   = require( 'should' );
-var fixtures = require( '../fixtures' );
+//var testutils	= require( '../testutils' );
 
 describe( 'ConfessionController', function () {
-	var app, mongodb;
 
 	var testPost = {
 		'message' : 'Mocha test 01',
 		'alias'   : 'Rj'
 	};
-
-	before( function ( done ) {
-		fixtures.createServer( 'ConfessionsController',
-			function ( error, server ) {
-				app = server;
-
-				fixtures.connectMongo( null, function ( error, conn ) {
-					if ( error ) {
-						done( error );
-					}
-
-					mongodb = conn.db;
-					done();
-				} );
-		} );
-	} );
-
-	after( function ( done ) {
-		mongodb.dropDatabase( function () {
-			done();
-		} );
-	} );
 
 	describe( 'POST' , function () {
 

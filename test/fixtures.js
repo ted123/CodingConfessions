@@ -35,7 +35,7 @@ exports.createServer = function ( controller, done ) {
 
 	app.use( connect.bodyParser() );
 
-
+	console.log('the controller: '+controller+ ' the path: '+controllerPath(controller));
 	app.use( '/', require( controllerPath( controller ) ) );
 
 	app.listen( config.port, config.host, function () {
@@ -43,3 +43,4 @@ exports.createServer = function ( controller, done ) {
 	} );
 
 };
+
