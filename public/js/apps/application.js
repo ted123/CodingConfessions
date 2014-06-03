@@ -7,6 +7,6 @@ define( function ( require ) {
 	var home  = require( 'apps/home/Home' );
 
 	//admin();
-	home();
+	home( );
 
 } );

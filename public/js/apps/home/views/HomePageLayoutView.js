@@ -12,7 +12,7 @@ define( function ( require ) {
 		'regions'  : {
 			'trendingRegion'   : '#trendingConfessions',
 			'submissionRegion' : '#submissionArea',
-			'modalRegion'	   : '#msgModal'
+			'modalRegion'      : '#msgModal'
 		}
 
 	} );

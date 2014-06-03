@@ -1,4 +1,4 @@
-define( function( require ) {
+define( function ( require ) {
 	'use strict';
 
 	var _        = require( 'underscore' );
@@ -15,11 +15,11 @@ define( function( require ) {
 
 		url : '/confessions',
 
-		'validate' : function( attr ){
-			if( ! attr.message ){
+		'validate' : function ( attr ) {
+			if ( ! attr.message ) {
 				return 'message must not be empty.';
 			}
-			if( ! attr.alias ){
+			if ( ! attr.alias ) {
 				return 'alias must not be empty.';
 			}
 		}

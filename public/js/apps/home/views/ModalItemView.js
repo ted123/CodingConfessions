@@ -5,16 +5,15 @@ define( function ( require ) {
 	var Marionette = require( 'marionette' );
 	var classie    = require( 'classie' );
 
-
 	var template = require( 'text!apps/home/templates/ModalTemplate.html' );
 
 	return Marionette.ItemView.extend( {
 
 		template : _.template( template ),
 		events   : {
-			"click a" : "action"
+			'click a' : 'action'
 		},
-		action : function ( e ) {
+		action   : function ( e ) {
 
 			e.preventDefault();
 
@@ -23,14 +22,13 @@ define( function ( require ) {
 			classie.remove( $( '.wrapper' )[ 0 ], 'sendtoBack' );
 			classie.add( $( '.wrapper' )[ 0 ], 'sendtoForward' );
 
-
 			$( '#msgModal' ).html( '' );
 
-			if( Backbone.history.length == 0 ){
+			if ( Backbone.history.length === 0 ) {
 				console.log('router backing');
 				Backbone.history.navigate( '', true);
 
-			}else{
+			}else {
 				console.log('history backing');
 				window.history.back();
 

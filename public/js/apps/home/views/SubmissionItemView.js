@@ -5,7 +5,6 @@ define( function ( require ) {
 	var Marionette = require( 'marionette' );
 	var confession = require( 'apps/home/models/ConfessionModel' );
 
-
 	var template = require( 'text!apps/home/templates/SubmissionTemplate.html' );
 
 	return Marionette.ItemView.extend( {
@@ -14,27 +13,27 @@ define( function ( require ) {
 		events   : {
 			'click #add' : 'submit'
 		},
-		submit : function( e ) {
+		submit   : function ( e ) {
 			e.preventDefault();
 
-			var msg = new confession( {
+			var msg = new Confession( {
 				'message' : $('#message').val(),
 				'alias'   : $('#alias').val()
 			} );
 
-			if( msg.isValid() ){
-				msg.save({}, {
-					wait : true,
-    				forceUpdate: true,
-					success: function () {
+			if ( msg.isValid() ) {
+				msg.save( {}, {
+					wait        : true,
+					forceUpdate : true,
+					success     : function () {
 						alert('All. iz well!');
 					},
-					error : function () {
+					error       : function () {
 						alert( 'An error has occured!' );
 					}
 				} );
 
-			}else{
+			}else {
 				alert( 'Pls fill up all fields!' );
 			}
 		}

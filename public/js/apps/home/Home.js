@@ -22,10 +22,10 @@ define( function ( require ) {
 
 			var API = {
 
-				'showHomePage' : function () {
+				'showHomePage'       : function () {
 					Home.Controller.Show.showHome();
 				},
-				'showConfessionPost' : function ( id ) {
+				'showConfessionPost' :  function ( id ) {
 					Home.Controller.Show.showConfession(id);
 				}
 

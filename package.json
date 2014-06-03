@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git://github.com/GlobalZeal/confessions.git"
   },
+  "scripts": {
+    "postinstall": "gulp hook"
+  },
   "author": "",
   "license": "MIT",
   "bugs": {
@@ -21,14 +24,22 @@
     "connect": "^2.14.5",
     "express": "^4.0.0",
     "mongoose": "^3.8.8",
-    "connect": "^2.14.5",
     "body-parser": "^1.2.0",
     "cookie-parser": "^1.1.0",
     "express-session": "^1.1.0"
   },
   "devDependencies": {
+    "gulp": "^3.7.0",
+    "gulp-complexity": "^0.2.1",
+    "gulp-jscs": "^0.5.0",
+    "gulp-jshint": "^1.6.1",
+    "gulp-notify": "^1.3.1",
+    "gulp-notify-growl": "^1.0.1",
+    "gulp-symlink": "^1.0.3",
+    "jshint-stylish": "^0.2.0",
     "mocha": "^1.18.2",
-    "supertest": "^0.11.0",
-    "should": "^3.3.1"
+    "should": "^3.3.1",
+    "stream-combiner": "^0.2.1",
+    "supertest": "^0.11.0"
   }
 }
