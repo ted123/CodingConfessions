@@ -22,7 +22,7 @@ gulp.task( 'hook', [ 'setup' ], function ( ) {
 } );
 
 gulp.task( 'setup', function ( ) {
-	return fs.readFile( './precommit', function ( err, data ) {
+	return fs.readFile( './precommit.sh', function ( err, data ) {
 		if (err) {
 			throw err;
 		}
