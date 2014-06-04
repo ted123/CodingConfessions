@@ -17,21 +17,19 @@ var errorReporter = function ( ) {
 	} );
 };
 
-gulp.task( 'hook', [ 'setup' ], function ( ) {
-	return fs.chmodSync( '.git/hooks/pre-commit', '755' );
-} );
-
 gulp.task( 'setup', function ( ) {
-	return fs.readFile( './precommit.sh', function ( err, data ) {
+	fs.readFile( './precommit.sh', function ( err, data ) {
 		if (err) {
 			throw err;
 		}
-		fs.writeFile( '.git/hooks/pre-commit', data, function ( err ) {
-			if ( err ) {
-				throw err;
-			}
-			console.log('Setup complete!');
-		} )
+		setTimeout( function () {
+			fs.chmodSync( '.git/hooks/pre-commit', '755' );
+		}, ( function () {
+			fs.writeFileSync( '.git/hooks/pre-commit', data);
+			return 100;
+		} )()
+		);
+
 	} );
 } );
 
